@@ -7,7 +7,7 @@ namespace TextualAnalysis
 {
     public class TextualAnalysis
     {
-        public static string stopWordFilePath = "../../../Data/test.txt";
+        public static string stopWordFilePath = "../../../Data/stop-words.txt";
 
         public TextualAnalysis()
         {
@@ -20,7 +20,7 @@ namespace TextualAnalysis
             // s = "all the faith he had had had had no effect."
 
             // remove punctuation
-            var cleanString = Regex.Replace(s, @"[ ^\w\s]", "");
+            var cleanString = Regex.Replace(s, @"[^\w\s]", "");
 
             // split the string into words (filtering out the empty strings)
 
@@ -79,7 +79,7 @@ namespace TextualAnalysis
             string text = System.IO.File.ReadAllText(path);
 
             // call the other method
-            var wordCount = ComputeWordFrequencies(text);
+            var wordCount = ComputeWordFrequencies(text, ignoreStopWords);
 
             // return the result of the other method
 

@@ -49,6 +49,36 @@ namespace MeanMode
 
                 
             }
+            int maxCount = 0;
+
+            
+            foreach (var count in numCounts.Values)
+            {
+                if(count == maxCount)
+                {
+                    return null;
+                }
+
+                if (count > maxCount)
+                {
+                    maxCount = count;
+                }
+            }
+
+           
+
+            foreach (var number in numCounts.Keys)
+            {
+                if(numCounts[number] == maxCount)
+                {
+                    return number;
+                }
+               
+            }
+
+
+
+
             //LinkedList<Bucket<K, V>> list in bucketListsArray
             //foreach(Dictionary<k, v> list in numCounts)
 
